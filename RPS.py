@@ -34,20 +34,22 @@ def main():
     else:
       print("Player chose Scissors")
 
-    if player == "R" and computer == "R":
+    if player == computer:
       print("Tie")
-      ties = ties + 1
-    if player == "R" and computer == "P":
-      print("Computer wins.")
-      losses = losses + 1
-    if player == "R" and computer =="S":
-      print("You win!")
-      wins = wins + 1
+      ties += 1
+    elif (player == "R" and computer == "S") or \
+         (player == "S" and computer == "P") or \
+         (player == "P" and computer == "R"): 
+      print("You Win!") 
+      wins += 1
+    else:
+      print("Computer wins.") 
+      losses += 1
 
     #Ask the user if they would like to play again.
     playAgain = input("Do you want to play again? (Y/N): ")
 
-    
+
   #In the end, print the stats
   print("Wins \t Ties \t Losses")
   print("---- \t ---- \t ------")
